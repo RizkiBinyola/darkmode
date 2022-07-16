@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darkmode</title>
+    <style>
+        body {
+            width: 70%;
+            margin: 10% auto;
+            
+        }
+
+        .icon {
+            font-size: 1.5rem;
+        }
+
+        span {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>DarkMode HTML CSS JS</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure porro vitae laborum adipisci, rerum eligendi quam. Laudantium natus minus dolorum? At possimus alias corporis et, cupiditate quasi animi maxime aliquam.</p>
+    <p>
+        <span class="icon" onclick="setDarkMode()" id="darkBtn"> 👿 </span>
+    </p>
+
+    <!-- darkmode css -->
+    <style>
+        .darkmode {
+            background: black;
+            color: white;
+        }
+
+        .darkmode .button {
+            background: burlywood;
+        }
+    </style>
+
+    <!-- Darkmode js -->
+    <script>
+         //  DarkMode
+        if(localStorage.getItem('theme') == 'dark')
+            setDarkMode()
+
+
+        function setDarkMode() {
+            let emoticon = ''
+            let isDark = document.body.classList.toggle('darkmode')
+
+            if (isDark) {
+                emoticon = '👼🏻'
+                localStorage.setItem('theme', 'dark')
+            } else {
+                emoticon = '👿'
+                localStorage.removeItem('theme')
+            }
+            document.getElementById('darkBtn').innerHTML = emoticon
+        }
+    </script>
